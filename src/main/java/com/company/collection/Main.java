@@ -1,0 +1,58 @@
+package com.company.collection;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Collection<String> collection;
+        Map<String, Integer> map;
+
+        List<String> list = new ArrayList<>();
+        List<String> stack = new Stack<>();
+        LinkedList<String> linkedList = new LinkedList<>();
+        Deque<String> deque = new LinkedList<>();
+        List<String> vector = new Vector<>();
+        Set<String> set = new HashSet<>();
+
+        Deque<Integer> deque1 = new LinkedList<>();
+        Queue<Integer> queue = new PriorityQueue<>();
+       // queue.
+        deque1.offerFirst(1);
+        deque1.poll();
+
+
+        /**
+         *Collections Framework is a set of classes and interfaces in Java
+         * that provides implementations of common data structures like lists,
+         * sets, maps, etc., along with algorithms to manipulate them.
+         * commons components of the Collections Framework are:
+         * 1) Collection Interface: The root interface in the collection hierarchy.
+         * 2) List Interface: The ordered collection (sometimes called a sequence).It extends the Collection interface.
+         *     Implementation classes: ArrayList: Resizable-array implementation of the List interface.
+         *     LinkedList:doubly linked list implementation of List, Vector: , Stack
+         * allows duplicate elements.
+         * 3) Set Interface: A collection that cannot contain duplicate elements.It extends the Collection interface.
+         *    Implementation classes:
+         *    HashSet: Uses a hash table to store elements.
+         *    TreeSet: Uses a Red-Black tree to store elements, providing ordered traversal.
+         *    SortedSet Interface: A Set that maintains its elements in ascending order.
+         * 4) Map Interface: An object that maps keys to values. A map cannot contain duplicate keys.Does not extend the Collection interface.
+         *   Implementation classes:
+         *   HashMap: Uses a hash table to store key-value pairs.
+         *   TreeMap: Uses a Red-Black tree to store key-value pairs, providing ordered traversal.
+         *   SortedMap Interface: A Map that maintains its mappings in ascending key order.
+         *   LinkedHashMap: Implements the Map interface, backed by a linked list (actually a LinkedHashMap instance).
+         *   Hashtable: Implements the Map interface with a hash table (actually a HashMap instance).
+         * <p>
+         * 5) Queue Interface: A collection used to hold multiple elements prior to processing. Besides basic Collection operations.
+         *   Implementation classes:
+         *   PriorityQueue: An unbounded priority queue based on a priority heap.
+         *   BlockingQueue Interface: A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element,
+         *   and wait for space to become available in the queue when storing an element.
+         * 6) Deque Interface: A linear collection that supports element insertion and removal at both ends.
+         * 7) Iterator Interface: An object that enables iteration over a collection.
+         * 8) ListIterator Interface: An iterator for lists that allows the programmer to traverse the list in either direction,
+         * modify the list during iteration, and obtain the iterator's current position in the list.
+         */
+    }
+}

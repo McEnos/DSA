@@ -86,6 +86,17 @@ public class Main {
             return false;
         return (value & value - 1) == 0;
     }
+    /**
+     * Given an integer, write a function to determine if it is a power of two.
+     * we can use the bitwise AND operator to check if the number is a power of two or not.
+     * If a number is a power of two, it will have only one set bit.
+     */
+
+    /**
+     * Given an integer, write a function to determine if it is a power of three.
+     * @param value
+     * @return
+     */
 
     public static boolean powerOfThree(int value) {
         if (value <= 0)
@@ -97,6 +108,12 @@ public class Main {
         }
         return value == 1;
     }
+
+    /**
+     * Given an integer, write a function to determine if it is a power of four.
+     * @param value
+     * @return
+     */
 
     public static boolean powerOfFour(int value) {
         if (value <= 0)

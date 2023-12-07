@@ -16,20 +16,24 @@ import java.util.*;
  *          * Inorder predecessor(Largest element from left subtree of the node to be deleted)
  *          * Inorder successor(Smallest element from right subtree of the node to be deleted)
  *          *NB: Inorder in BST gives elements in sorted order, meaning if you sort the elements in a list,
- *          the one on rigt of node to be deleted will be Inorder predecessor and the one in the right will be
+ *          the one on right of node to be deleted will be Inorder predecessor and the one in the right will be
  *          Inorder successor
  * AVL trees
- *  ***is BST(Binary search Tree) and self balances Left subtree - right sub tree has to be either -1,0 or 1
+ *  ***is BST(Binary search Tree) and self balances Left subtree - right subtree has to be either -1,0 or 1
  *  if not, balancing has to be done majorly consider BST property and check middle element(should be the root of that section) within the unbalanced section
  *  Every insertion and deletion of an element, balancing has to be done
- *
+ * <p>
  *
  *  Red Black trees, majorly select a data structure based on the most frequent operation either insertion/deletion/search
- *
- *  Red Black tree is a self balancing BST
- *
+ * <p>
+ *  Red Black tree is a self-balancing BST
+ * <p>
  *  Searching is faster in AVL tree  because it is strictly height balanced tree.
  *  Insertion and deletion is faster in Red Black trees since few rotations are required as opposed to AVL
+ *  Red Black tree must be a BST
+ *  The rood node must be black
+ *  Children of red node must be coloured black i.e there should not be more than 2 consecutive red nodes
+ *  Every leaf (e.i. NULL node) must be colored BLACK.
  */
 
 public class BinaryTree<T> {

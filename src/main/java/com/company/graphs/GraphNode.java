@@ -96,5 +96,48 @@ class Main {
         //no cross-edges were found in the graph
         return false;
     }
-
+    /**
+     * write a dfs algorithm to detect a cycle in a graph
+     * 1. create a boolean array to keep track of visited vertices
+     * 2. create a stack to do dfs
+     * 3. mark the source vertex as visited and push it onto the stack
+     * 4. while the stack is not empty
+     * 5. pop a vertex from the stack and print it
+     * 6. loop through the adjacency list of the popped vertex
+     * 7. if the adjacent vertex is not visited, mark it as visited and push it onto the stack
+     * 8. if the adjacent vertex is already visited, then a cycle is detected
+     * 9. if the stack is empty, then dfs is complete
+     */
+    public static boolean DFS(GraphV2 graph, int src, int n) {
+        //to keep track of whether a vertex is discovered or not
+        boolean[] discovered = new boolean[n];
+        //mark the source vertex as discovered
+        discovered[src] = true;
+        //create a stack for doing DFS
+        Stack<Integer> stack = new Stack<>();
+        //push the source vertex
+        stack.push(src);
+        //loop till stack is empty
+        while (!stack.isEmpty()) {
+            //pop a vertex from the stack
+            int v = stack.pop();
+            //do for every edge (v -> u)
+            for (int u : graph.adjList.get(v)) {
+                if (!discovered[u]) {
+                    //mark it as discovered
+                    discovered[u] = true;
+                    //push the vertex into the stack
+                    stack.push(u);
+                } else {
+                    //if the vertex is already discovered, and
+                    //it is not a parent vertex of the current vertex
+                    //then we found a cycle
+                    if (u != v) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
