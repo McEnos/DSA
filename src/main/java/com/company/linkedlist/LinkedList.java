@@ -24,10 +24,10 @@ public class LinkedList<T> {
         return head;
     }
 
-    public Node<T> insertTail(T data){
+    public Node<T> insertTail(T data) {
         Node<T> newNode = new Node<>(data);
         Node<T> currentNode = head;
-        while (Objects.nonNull(currentNode.getNext())){
+        while (Objects.nonNull(currentNode.getNext())) {
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(newNode);
@@ -137,6 +137,13 @@ public class LinkedList<T> {
     private boolean loopExists(Node<T> head) {
         Node<T> hare = head;
         Node<T> tortoise = head;
+        /**
+         * hare != null: This condition checks if the hare pointer has reached the end of the list.
+         * If hare is null, it means we have traversed the list without finding a cycle, so we should terminate the loop.
+         * hare.getNext() != null: This condition checks if there is a node after the current hare node. Since the hare pointer moves two steps at a time
+         * (hare = hare.getNext().getNext()), we must ensure that hare.getNext() is not null before attempting to access hare.getNext().getNext().
+         * If hare.getNext() is null and we try to access hare.getNext().getNext(), it will result in a NullPointerException.
+         */
         while (Objects.nonNull(hare) && Objects.nonNull(hare.getNext())) {
             hare = hare.getNext().getNext();
             tortoise = tortoise.getNext();
@@ -185,14 +192,20 @@ public class LinkedList<T> {
         }
         int length = 0;
         if (loopExists) {
-            tortoise = head;
-            while (!Objects.equals(hare, tortoise)) {
+            do {
                 hare = hare.getNext();
-                tortoise = tortoise.getNext();
                 length += 1;
-            }
+            } while (hare != tortoise);
         }
         return length;
+    }
+
+    private boolean isListEven(Node<T> head){
+        Node<T> current = head;
+        while (Objects.nonNull(current) && Objects.nonNull(current.getNext())){
+            current = current.getNext();
+        }
+        return Objects.isNull(current);
     }
 
     /*public Node<T> insertInSortedLIst(Node<T> head,T data){

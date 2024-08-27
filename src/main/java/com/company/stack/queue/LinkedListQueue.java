@@ -3,7 +3,7 @@ package com.company.stack.queue;
 import com.company.linkedlist.LinkedList;
 
 public class LinkedListQueue<T> implements Queue<T> {
-    private LinkedList<T> list;
+    private final LinkedList<T> list;
 
     public LinkedListQueue(LinkedList<T> list) {
         this.list = list;

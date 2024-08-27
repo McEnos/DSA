@@ -6,7 +6,7 @@ public class Main {
     //https://github.com/Neelesh-Janga/Java-Programs/tree/main
     public static void main(String[] args) {
         //System.out.println(balancedParentheses("[{{}}[]()]"));
-        System.out.println( findMaxAverage(new int[]{1,12,-5,-6,50,3},4));
+        System.out.println(findMaxAverage(new int[]{1, 12, -5, -6, 50, 3}, 4));
     }
 
     //https://leetcode.com/problems/ransom-note/
@@ -67,25 +67,58 @@ public class Main {
                 Objects.equals(opening, '(') && Objects.equals(closing, ')');
     }
 
-    public static double findMaxAverage(int[] nums, int k){
+    public static double findMaxAverage(int[] nums, int k) {
         double max = Integer.MIN_VALUE;
-        for (int i =0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             double windowSum = 0;
-            for(int j=0;j<k;j++){
-                if (!(i+(k-1) > nums.length-1)){
-                    windowSum += nums[i+j];
-                }else{
+            for (int j = 0; j < k; j++) {
+                if (!(i + (k - 1) > nums.length - 1)) {
+                    windowSum += nums[i + j];
+                } else {
                     i = nums.length;
                     j = k;
                 }
             }
-            if (windowSum != 0){
-                max = Math.max(max,windowSum/k);
+            if (windowSum != 0) {
+                max = Math.max(max, windowSum / k);
             }
         }
-        if (max == Integer.MIN_VALUE){
+        if (max == Integer.MIN_VALUE) {
             return 0;
         }
         return max;
     }
+
+    //https://leetcode.com/problems/concatenation-of-array/
+    public int[] getConcatenation(int[] nums) {
+        int[] result = new int[2 * nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = nums[i];
+            result[i + nums.length] = nums[i];
+        }
+        return result;
+    }
+
+    //https://leetcode.com/problems/build-array-from-permutation/
+    public int[] buildArray(int[] nums) {
+        int[] result = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = nums[nums[i]];
+        }
+        return result;
+    }
+
+    //https://leetcode.com/problems/defanging-an-ip-address/
+    public String defangIPaddr(String address) {
+        StringBuilder sb = new StringBuilder();
+        for (char i : address.toCharArray()) {
+            if ('.' == i) {
+                sb.append("[.]");
+            } else {
+                sb.append(i);
+            }
+        }
+        return sb.toString();
+    }
+
 }
