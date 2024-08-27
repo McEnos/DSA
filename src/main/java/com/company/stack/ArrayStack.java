@@ -37,7 +37,7 @@ public class ArrayStack<T> implements Stack<T> {
     @SuppressWarnings("unchecked")
     public T pop() throws Exception {
         if (isEmpty())
-            throw new Exception("LinkedListStack is empty");
+            throw new Exception("stack is empty");
         T element = (T) stack[top];
         stack[top--] = null;
         return element;

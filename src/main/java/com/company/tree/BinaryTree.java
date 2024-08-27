@@ -9,31 +9,31 @@ import java.util.*;
  * *************************Operations********************************************************
  * Insertion
  * Deletion (Cases): Node to be deleted;
- *      1)Has no child: Delete the node straight away
- *      2)Has 1 child: Link node to be deleted  parent with its child i.e replace the node by its child
- *          . go ahead and delete the node.
- *      3)Has 2 children, replace the node to be deleted with its
- *          * Inorder predecessor(Largest element from left subtree of the node to be deleted)
- *          * Inorder successor(Smallest element from right subtree of the node to be deleted)
- *          *NB: Inorder in BST gives elements in sorted order, meaning if you sort the elements in a list,
- *          the one on right of node to be deleted will be Inorder predecessor and the one in the right will be
- *          Inorder successor
+ * 1)Has no child: Delete the node straight away
+ * 2)Has 1 child: Link node to be deleted  parent with its child i.e replace the node by its child
+ * . go ahead and delete the node.
+ * 3)Has 2 children, replace the node to be deleted with its
+ * * Inorder predecessor(Largest element from left subtree of the node to be deleted)
+ * * Inorder successor(Smallest element from right subtree of the node to be deleted)
+ * *NB: Inorder in BST gives elements in sorted order, meaning if you sort the elements in a list,
+ * the one on right of node to be deleted will be Inorder predecessor and the one in the right will be
+ * Inorder successor
  * AVL trees
- *  ***is BST(Binary search Tree) and self balances Left subtree - right subtree has to be either -1,0 or 1
- *  if not, balancing has to be done majorly consider BST property and check middle element(should be the root of that section) within the unbalanced section
- *  Every insertion and deletion of an element, balancing has to be done
+ * ***is BST(Binary search Tree) and self balances Left subtree - right subtree has to be either -1,0 or 1
+ * if not, balancing has to be done majorly consider BST property and check middle element(should be the root of that section) within the unbalanced section
+ * Every insertion and deletion of an element, balancing has to be done
  * <p>
- *
- *  Red Black trees, majorly select a data structure based on the most frequent operation either insertion/deletion/search
  * <p>
- *  Red Black tree is a self-balancing BST
+ * Red Black trees, majorly select a data structure based on the most frequent operation either insertion/deletion/search
  * <p>
- *  Searching is faster in AVL tree  because it is strictly height balanced tree.
- *  Insertion and deletion is faster in Red Black trees since few rotations are required as opposed to AVL
- *  Red Black tree must be a BST
- *  The rood node must be black
- *  Children of red node must be coloured black i.e there should not be more than 2 consecutive red nodes
- *  Every leaf (e.i. NULL node) must be colored BLACK.
+ * Red Black tree is a self-balancing BST
+ * <p>
+ * Searching is faster in AVL tree  because it is strictly height balanced tree.
+ * Insertion and deletion is faster in Red Black trees since few rotations are required as opposed to AVL
+ * Red Black tree must be a BST
+ * The root node must be black
+ * Children of red node must be coloured black i.e there should not be more than 2 consecutive red nodes
+ * Every leaf (e.i. NULL node) must be colored BLACK.
  */
 
 public class BinaryTree<T> {
@@ -205,6 +205,43 @@ public class BinaryTree<T> {
         preorder(root.rightChild);
     }
 
+    public List<T> iterativePreOrder(BinaryTreeNode<T> root) {
+        Stack<BinaryTreeNode<T>> stack = new Stack<>();
+        List<T> result = new ArrayList<>();
+
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            BinaryTreeNode<T> currentNode = stack.pop();
+            result.add(currentNode.data);
+            if (Objects.nonNull(currentNode.rightChild)) {
+                stack.push(currentNode.rightChild);
+            }
+            if (Objects.nonNull(currentNode.leftChild)) {
+                stack.push(currentNode.leftChild);
+            }
+        }
+        return result;
+    }
+
+    public List<T> iterativeInOrder(BinaryTreeNode<T> root) {
+        List<T> result = new ArrayList<>();
+        BinaryTreeNode<T> current = root;
+        Stack<BinaryTreeNode<T>> stack = new Stack<>();
+        while (Objects.nonNull(current) || !stack.isEmpty()) {
+            // Reach the leftmost node of the current node
+            while (Objects.nonNull(current)) {
+                stack.push(current);
+                current = current.leftChild;
+            }
+            // Current must be null at this point
+            current = stack.pop();
+            result.add(current.data);
+            // We have visited the node and its left subtree. Now, it's right subtree's turn
+            current = current.rightChild;
+        }
+        return result;
+    }
+
     public void inorder(BinaryTreeNode<T> root) {
         if (Objects.isNull(root))
             return;
@@ -276,6 +313,7 @@ public class BinaryTree<T> {
         return result;
 
     }
+
     public List<T> iterativePostorder(BinaryTreeNode<T> root) {
         List<T> result = new ArrayList<>();
         if (Objects.isNull(root)) {
@@ -383,13 +421,12 @@ public class BinaryTree<T> {
     }
 
 
-
     public List<T> levelOrder(BinaryTreeNode<T> root) {
         List<T> result = new ArrayList<>();
         Queue<BinaryTreeNode<T>> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
-            //poll() removes the present head.
+            //poll() removes the present root.
             BinaryTreeNode<T> currentNode = queue.poll();
             result.add(currentNode.data);
             /*Enqueue left child */
@@ -409,7 +446,6 @@ public class BinaryTree<T> {
         if (Objects.nonNull(root)) {
             int leftMax = maxInBinaryTree(root.leftChild);
             int maxRight = maxInBinaryTree(root.rightChild);
-            //maxValue = Math.max(leftMax,maxRight);
             maxValue = Math.max(leftMax, maxRight);
             maxValue = Math.max(maxValue, root.data);
         }
