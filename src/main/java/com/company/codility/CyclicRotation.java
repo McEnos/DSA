@@ -1,8 +1,10 @@
 package com.company.codility;
 
+import java.util.Arrays;
+
 public class CyclicRotation {
     public static void main(String[] args) {
-        System.out.println(solution(new int[]{1, 2, 3, 4}, 3));
+        System.out.println(Arrays.toString(solution(new int[]{1, 2, 3, 4}, 3)));
     }
 
     private static int[] solution(int[] A, int k) {

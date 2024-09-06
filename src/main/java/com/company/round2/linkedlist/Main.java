@@ -29,17 +29,6 @@ public class Main {
 
     }
 
-    public static boolean containsDuplicate(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        for (int i : nums) {
-            if (set.contains(i)) {
-                return true;
-            } else {
-                set.add(i);
-            }
-        }
-        return false;
-    }
 
     public static int maxSubArray(int[] nums) {
         int currentSum = 0;
