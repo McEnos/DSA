@@ -1,9 +1,11 @@
-package com.company.leetcode;
+package com.company.leetcode.stack;
 
 import java.util.Arrays;
-import java.util.Deque;
 import java.util.Stack;
 
+/**
+ * https://leetcode.com/problems/valid-parentheses/
+ */
 public class ValidParenthesis {
     public static void main(String[] args) {
         System.out.println(solution("()"));
@@ -13,19 +15,19 @@ public class ValidParenthesis {
     }
 
     private static boolean solution(String s) {
-        Stack<Character> stack = new Stack<>();
-        if (s.length() % 2 != 0) { // assuming the provided string only has parenthesis
+        if (s.length() % 2 != 0) {
             return false;
         }
+        Stack<Character> stack = new Stack<>();
         for (char c : s.toCharArray()) {
-            if (openingParenthesis(c)) {
+            if (isOpeningParenthesis(c)) {
                 stack.push(c);
-            } else if (closingParenthesis(c)) {
+            } else if (isClosingParenthesis(c)) {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                Character topCharacter = stack.peek();
-                if (isMatching(topCharacter, c)) {
+                Character top = stack.peek();
+                if (isMatching(top, c)) {
                     stack.pop();
                 } else {
                     stack.push(c);
@@ -35,19 +37,18 @@ public class ValidParenthesis {
         return stack.isEmpty();
     }
 
-    private static boolean closingParenthesis(char s) {
-        return Arrays.asList(')', ']', '}').contains(s);
-    }
-
-    private static boolean openingParenthesis(char s) {
-        return Arrays.asList('(', '[', '{').contains(s);
-    }
-
     private static boolean isMatching(char opening, char closing) {
         return (opening == '(' && closing == ')') ||
-                (opening == '{' && closing == '}')
-                || (opening == '[' && closing == ']');
+                (opening == '[' && closing == ']') ||
+                (opening == '{' && closing == '}');
     }
 
 
+    private static boolean isOpeningParenthesis(char c) {
+        return Arrays.asList('{', '[', '(').contains(c);
+    }
+
+    private static boolean isClosingParenthesis(char c) {
+        return Arrays.asList(')', ']', '}').contains(c);
+    }
 }

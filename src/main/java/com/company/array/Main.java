@@ -119,20 +119,7 @@ public class Main {
         return max;  // Return the maximum consecutive 1s
     }
 
-    //https://www.youtube.com/watch?v=gaB-guUxCWI&t=14s
-    public static void duplicateZerosV1(int[] arr) {
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                queue.add(0);
-                queue.add(0);
-            } else {
-                queue.add(arr[i]);
-            }
-            Integer first = queue.poll();
-            arr[i] = first;
-        }
-    }
+
 
     //https://www.youtube.com/watch?v=C4oBXLr3zos&t=11s
     public static void mergeSortedArray(int[] nums1, int m, int[] nums2, int n) {
