@@ -11,7 +11,7 @@ public class ReverseVowels {
     }
 
     private static String solution(String str) {
-        Stack<Character> vowelStack = new Stack<Character>();
+        Stack<Character> vowelStack = new Stack<>();
         List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
         char[] result = str.toCharArray();
         for (char c : result) {
@@ -46,6 +46,12 @@ public class ReverseVowels {
         }
         return new String(chars);
 
+    }
+
+    private static void swap2(char[] values, int i, int j) {
+        char temp = values[i];
+        values[i] = values[j];
+        values[j] = temp;
     }
 
     private static void swap(char[] word, int start, int end) {

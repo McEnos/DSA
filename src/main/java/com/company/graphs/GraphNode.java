@@ -88,7 +88,7 @@ class Main {
                     //about vertex and enqueue it
                     queue.add(new GraphNode(u, node.v));
                 } else if (u != node.parent) {
-                    //we found a cross edge, i.e the cycle is found
+                    //we found a cross edge, i.e. the cycle is found
                     return true;
                 }
             }

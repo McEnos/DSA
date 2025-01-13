@@ -98,43 +98,6 @@ public class Main {
         return count;
     }
 
-    public static int findMaxConsecutiveOnes(int[] nums) {
-        int max = 0;    // Variable to store the maximum consecutive 1s
-        int count = 0;  // Variable to keep track of the current consecutive 1s count
-
-        for (int num : nums) {
-            if (num == 1) {
-                count++;
-            } else {
-                count = 0;  // Reset the count if the current element is not 1
-            }
-
-            if (count > max) {
-                max = count;  // Update the max if the current count is greater
-            }
-        }
-        //[1,1,0,1,1,1]
-
-
-        return max;  // Return the maximum consecutive 1s
-    }
-
-
-
-    //https://www.youtube.com/watch?v=C4oBXLr3zos&t=11s
-    public static void mergeSortedArray(int[] nums1, int m, int[] nums2, int n) {
-        int p1 = m - 1;//to enable iterating through nums1 i.e length is m
-        int p2 = n - 1; //to enable iterating through nums2 i.e length is n
-        int i = m + n - 1; //to enable iterating through resulting array i.e length is n
-        while (p2 >= 0) {
-            if (p1 >= 0 && nums1[p1] > nums2[p2]) {
-                nums1[i--] = nums1[p1--];
-            } else {
-                nums1[i--] = nums2[p2--];
-            }
-        }
-
-    }
 
     //https://leetcode.com/problems/remove-element/description/
     //https://youtu.be/pGKDzt0gk-A
@@ -158,19 +121,6 @@ public class Main {
         return index;
     }
 
-    public static void duplicateZeros(int[] arr) {
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                queue.add(0);
-                queue.add(0);
-            } else {
-                queue.add(0);
-            }
-            Integer first = queue.poll();
-            arr[i] = first;
-        }
-    }
 
     public static int fibRecursive(int n) {
         if (n == 1 || n == 2) {
@@ -195,7 +145,7 @@ public class Main {
     }
 
     public static int fibMemoized(int n) {
-        int[] array = new int[n];
+        int[] array = new int[n+1];
         array[1] = 1;
         array[2] = 1;
         for (int i = 3; i <= n; i++) {

@@ -71,7 +71,7 @@ public class DynamicArrayStack<T> implements Stack<T>{
     private boolean threeQuarterEmpty() {
         int length = size();
         int threeQuarterCapacity = (3 * capacity) / 4;
-        return length <= threeQuarterCapacity;
+        return length == threeQuarterCapacity;
     }
 
     private void shrink() {

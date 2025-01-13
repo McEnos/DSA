@@ -28,7 +28,7 @@ public class LongestSubArray {
              * In this case, however, we are tasked with deleting exactly one element from the window,
              * so we need to account for that by excluding one element from the window length calculation.
              */
-            maxLength = Math.max(maxLength, right - left + 1);
+            maxLength = Math.max(maxLength, right - left);
         }
         return maxLength;
     }

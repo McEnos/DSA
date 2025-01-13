@@ -1,9 +1,8 @@
 package com.company.leetcode75.hashmap;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/problems/equal-row-and-column-pairs/description/?envType=study-plan-v2&envId=leetcode-75
+ * https://chatgpt.com/c/66e8f0dd-7604-8011-9bf1-9f579038e757
  */
 public class EqualPairs {
     public static void main(String[] args) {

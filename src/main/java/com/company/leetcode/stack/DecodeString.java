@@ -5,6 +5,7 @@ import java.util.Stack;
 
 /**
  * https://leetcode.com/problems/decode-string/?envType=study-plan-v2&envId=leetcode-75
+ * https://chatgpt.com/c/66df1ebc-3a54-8011-a7a9-97571cea4473
  */
 public class DecodeString {
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ import java.util.Set;
 
 /**
  * https://leetcode.com/problems/intersection-of-two-linked-lists/description/?envType=problem-list-v2&envId=et00a8d3
+ * 160. Get Intersection of 2 Linked Lists
  */
 public class GetIntersectionNode {
     public static void main(String[] args) {
@@ -30,5 +31,17 @@ public class GetIntersectionNode {
         }
 
         return null;
+    }
+
+    private static ListNode solutionV2(ListNode headA, ListNode headB) {
+        ListNode ptrA = headA;
+        ListNode ptrB = headB;
+        // Traverse the lists. When a pointer reaches the end, switch it to the other list's head.
+        while (ptrA != ptrB) {
+            ptrA = ptrA == null ? headB : ptrA.next;
+            ptrB = ptrB == null ? headA : ptrB.next;
+        }
+        // Either both pointers meet at the intersection node, or both become null (no intersection).
+        return ptrA;
     }
 }

@@ -1,5 +1,8 @@
 package com.company.leetcode75.twopointers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * https://leetcode.com/problems/valid-palindrome/description/?envType=problem-list-v2&envId=5ju0l817
  */
@@ -25,6 +28,25 @@ public class PalindromeString {
                 left++;
                 right--;
             }
+        }
+        return true;
+    }
+
+    private static boolean solutionV3(String s) {
+        List<Character> characters = new ArrayList<>();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                characters.add(c);
+            }
+        }
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (characters.get(left) != characters.get(right)){
+                return false;
+            }
+            left++;
+            right--;
         }
         return true;
     }

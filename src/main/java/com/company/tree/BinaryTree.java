@@ -10,13 +10,13 @@ import java.util.*;
  * Insertion
  * Deletion (Cases): Node to be deleted;
  * 1)Has no child: Delete the node straight away
- * 2)Has 1 child: Link node to be deleted  parent with its child i.e replace the node by its child
+ * 2)Has 1 child: Link node to be deleted  parent with its child i.e. replace the node by its child
  * . go ahead and delete the node.
  * 3)Has 2 children, replace the node to be deleted with its
  * * Inorder predecessor(Largest element from left subtree of the node to be deleted)
  * * Inorder successor(Smallest element from right subtree of the node to be deleted)
  * *NB: Inorder in BST gives elements in sorted order, meaning if you sort the elements in a list,
- * the one on right of node to be deleted will be Inorder predecessor and the one in the right will be
+ * the one on the left of node to be deleted will be Inorder predecessor and the one in the right will be
  * Inorder successor
  * AVL trees
  * ***is BST(Binary search Tree) and self balances Left subtree - right subtree has to be either -1,0 or 1
@@ -32,7 +32,7 @@ import java.util.*;
  * Insertion and deletion is faster in Red Black trees since few rotations are required as opposed to AVL
  * Red Black tree must be a BST
  * The root node must be black
- * Children of red node must be coloured black i.e there should not be more than 2 consecutive red nodes
+ * Children of red node must be coloured black i.e. there should not be more than 2 consecutive red nodes
  * Every leaf (e.i. NULL node) must be colored BLACK.
  */
 

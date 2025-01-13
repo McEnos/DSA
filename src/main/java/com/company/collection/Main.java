@@ -10,6 +10,18 @@ public class Main {
         strings.add("two");
         strings.add("three");
 
+        List<Integer> integers = new LinkedList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        integers.add(4);
+        integers.add(5);
+
+        Integer[] array1 = integers.toArray(new Integer[0]);
+        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+
+        System.out.println("Array: " + Arrays.toString(array1));
+
        /* if (strings.contains("one")) {
             System.out.println("one is here");
         }

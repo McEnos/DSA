@@ -38,8 +38,6 @@ public class RemoveStars {
     /**
      * Optimized version to use O(n) memory for StringBuilder if there are no * character
      *
-     * @param s
-     * @return
      */
     private static String solution2(String s) {
         StringBuilder sb = new StringBuilder();

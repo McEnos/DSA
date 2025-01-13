@@ -1,2 +1,6 @@
 # Project exclude paths
+/target/.qodo
 /target/
+/.qodo/
+/.idea/
+/.gradle/
