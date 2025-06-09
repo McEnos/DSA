@@ -29,8 +29,8 @@ public class AddBinary {
             int currentBit = sum % 2;
             sb.append(currentBit);
             carry = sum / 2;
-
         }
         return sb.reverse().toString();
+
     }
 }

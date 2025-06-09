@@ -83,7 +83,7 @@ public class LinkedList<T> {
 
     public void deleteAtPosition(int position) {
         // list is empty, head will be null
-        if (Objects.isNull(head))
+       if (Objects.isNull(head))
             return;
         Node<T> currentNode = head;
         // position is 0, means delete head
@@ -99,19 +99,6 @@ public class LinkedList<T> {
             currentPosition += 1;
         }
         prevNode.setNext(currentNode.getNext());
-
-      /*  if (Objects.isNull(head))
-            return;
-
-        Node<T> currentNode = head;
-        if (Objects.equals(position, 0)) {
-            head = currentNode.getNext();
-            return;
-        }
-        for (int i = 0; Objects.nonNull(currentNode) && i < position - 1; i++) {
-            currentNode = currentNode.getNext();
-        }
-        currentNode.setNext(currentNode.getNext().getNext());*/
 
 
     }
@@ -200,9 +187,9 @@ public class LinkedList<T> {
         return length;
     }
 
-    private boolean isListEven(Node<T> head){
+    private boolean isListEven(Node<T> head) {
         Node<T> current = head;
-        while (Objects.nonNull(current) && Objects.nonNull(current.getNext())){
+        while (Objects.nonNull(current) && Objects.nonNull(current.getNext())) {
             current = current.getNext();
         }
         return Objects.isNull(current);
